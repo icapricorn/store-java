@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chgenomics.store.dao.UserMapper">
+
+	<resultMap id="BaseResultMap" type="com.chgenomics.store.model.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="role" property="role" jdbcType="VARCHAR" />
+		<result column="company" property="company" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="vip_number" property="vipNumber" jdbcType="VARCHAR" />
+		<result column="customer_number" property="customerNumber" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="findById" resultMap="BaseResultMap">
+		select * from users where id = #{id}
+	</select>
+</mapper>
