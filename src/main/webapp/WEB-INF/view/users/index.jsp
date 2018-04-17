@@ -1,23 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 	<head>
-		<%@ page isELIgnored="false" %>
 		<title>Users</title>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    	<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 	</head>
 	<body>
 		<h1>This is Users page.</h1>
-		<table>
+		<table id="users-table" class="table sortable">
 			<thead>
 				<tr>
-					<th></th>
-					<th>Name</th>
-					<th>VIP No.</th>
-					<th>Customer No.</th>
-					<th>Profile</th>
-					<th>Role</th>
-					<th></th>
-					<th></th>
+					<th class="col-sm-1"></th>
+					<th class="col-sm-2">Name</th>
+					<th class="col-sm-2">VIP No.</th>
+					<th class="col-sm-2">Customer No.</th>
+					<th class="col-sm-2">Profile</th>
+					<th class="col-sm-2">Role</th>
+					<th class="col-sm-1"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,7 +31,6 @@
 			 			<td></td>
 			 			<td>${user.role}</td>
 			 			<td><a href="<c:url value="/users/${user.id}/edit"/>">Edit</a></td>
-			 			<td><a href="#">Delete</a></td>
 		 			</tr>
 				</c:forEach>
 			</tbody>
