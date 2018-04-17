@@ -20,17 +20,17 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(value = "/create")
+	@GetMapping(value = "/new")
 	public String create() {
-		return "users/create";
+		return "users/new";
 	}
 
-	@PostMapping(value = "/create")
-	public String save(User user) {
+	@PostMapping(value = "/new")
+	public String create(User user) {
 		if (userService.save(user)) {
 			return "redirect:/users";
 		} else {
-			return "forward:/users/create";
+			return "forward:/users/new";
 		}
 	}
 
