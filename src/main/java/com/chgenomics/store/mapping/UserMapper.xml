@@ -17,7 +17,33 @@
 		<result column="code" property="code" jdbcType="VARCHAR" />
 	</resultMap>
 	
+	<insert id="save" parameterType="com.chgenomics.store.model.User" useGeneratedKeys="true" keyProperty="id" >
+		insert into users(role, name, phone, vip_number, customer_number, email, company, address, created_at, updated_at) 
+		values(#{role},#{name},#{phone},#{vipNumber},#{customerNumber},#{email},#{company},#{address},'1970-01-01 00:00:00','1970-01-01 00:00:00')
+	</insert>
+	
+	<select id="findAll" resultMap="BaseResultMap">
+		select * from users
+	</select>
+	
 	<select id="findById" resultMap="BaseResultMap">
 		select * from users where id = #{id}
 	</select>
+	
+	<update id="update" parameterType="com.chgenomics.store.model.User">
+		update users set
+		role = #{role},
+		name = #{name},
+		phone = #{phone},
+		vip_number = #{vipNumber},
+		customer_number = #{customerNumber},
+		email = #{email},
+		company = #{company},
+		address = #{address}
+		where id = #{id}
+	</update>
+	
+	<delete id="destroy" >
+		delete from users where id = #{id}
+	</delete>
 </mapper>

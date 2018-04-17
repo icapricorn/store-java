@@ -26,9 +26,9 @@ public class UserControllerTest {
 	@Test
 	public void test() {
 		User user = userService.findById(1);
-		String view = userController.user(1, new ConcurrentModel());
+//		String view = userController.user(1, new ConcurrentModel());
 		logger.info(user);
-		logger.info(view);
+//		logger.info(view);
 	}
 
 }
